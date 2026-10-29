@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Charis Cristian Missionary School Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF8F3;--ink:#1F2A5A;--mut:#5d6486;--card:#fff;--line:#e3e0d6;--y:#F2C230;--t:#17806f;--c:#E4572E;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121734;--ink:#f1efe6;--mut:#a5abcf;--card:#1b2147;--line:#2c3466;--t:#5fd0bd}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.5}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:3px solid var(--y)}
+h1{margin:0;font-size:1.35rem;font-weight:800}
+.role{display:flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
+.role button{border:0;background:none;color:var(--ink);font:inherit;padding:6px 16px;border-radius:999px;cursor:pointer}
+.role button.on{background:var(--ink);color:var(--bg)}
+main{max-width:1000px;margin:0 auto;padding:20px}
+.hero{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.stat{flex:1;min-width:120px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+.stat b{display:block;font-size:2rem;font-weight:800}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+input,select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.bar input{flex:2;min-width:180px}.bar select{flex:1;min-width:120px}
+:focus-visible{outline:3px solid var(--t);outline-offset:2px}
+.btn{font:inherit;font-weight:600;border:0;border-radius:10px;padding:8px 14px;background:var(--y);color:#1F2A5A;cursor:pointer}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.alt{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.book{background:var(--card);border:1px solid var(--line);border-radius:6px 14px 14px 6px;border-left-width:12px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.book h3{margin:0;font-size:1.02rem;line-height:1.25}.book p{margin:0;color:var(--mut);font-size:.88rem}
+.book .ft{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tag{font-size:.78rem;padding:2px 9px;border-radius:999px;border:1px solid var(--line);background:var(--bg)}
+.tag.in{color:var(--t);border-color:var(--t)}.tag.out{color:var(--c);border-color:var(--c)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);font-size:.92rem}
+.scroll{overflow-x:auto}
+h2{font-size:1.1rem;margin:22px 0 10px}
+.empty{padding:24px;text-align:center;color:var(--mut);border:2px dashed var(--line);border-radius:14px}
+.late{color:var(--c);font-weight:600}
+.me{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.book[data-open]{cursor:pointer}.stat[data-stat]{cursor:pointer}.stat[data-stat]:hover{border-color:var(--ink)}.book[data-open]:hover{border-color:var(--ink)}
+dialog{border:0;border-radius:16px;max-width:480px;width:calc(100% - 32px);background:var(--card);color:var(--ink);padding:22px}dialog::backdrop{background:rgba(10,14,40,.6)}
+.dl{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;margin:14px 0}.dl dt{color:var(--mut)}.dl dd{margin:0}
+.row{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+dialog label{display:block;margin:10px 0 4px;font-weight:600;font-size:.9rem}dialog input,dialog select,dialog textarea{width:100%}
+textarea{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+#tabs{overflow-x:auto}#lg{overflow-y:auto}dialog{max-height:calc(100dvh - 32px);overflow-y:auto}
+@media(max-width:560px){main{padding:14px}.stat b{font-size:1.5rem}.dl{grid-template-columns:90px 1fr}header{padding:12px 14px}h1{font-size:1.1rem}}
+@media print{header,#tabs,.btn,.bar,dialog{display:none!important}}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:10px}
+</style></head><body>
+<div id="lg" style="position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px"><div class="me" style="flex-direction:column;align-items:stretch;max-width:380px;width:100%;margin:0"><h2 style="margin:0">Charis Cristian Missionary School Library</h2><p style="margin:0;color:var(--mut)">Sign in to continue. Demo: the librarian password is <b>library</b>. Students use their ID, for example <b>JHS1-014</b>.</p><label for="lgr">I am a</label><select id="lgr"><option value="stu">Student</option><option value="lib">Librarian</option></select><label for="lgi">Password or student ID</label><input id="lgi" autocomplete="off"><div id="lge" class="late" role="alert"></div><button class="btn" id="lgb">Sign in</button></div></div>
+<header><h1>Charis Cristian Missionary School <span style="font-weight:400;color:var(--mut)">Library</span></h1>
+<div><span id="who" style="margin-right:10px"></span><button class="btn alt" id="lo">Log out</button></div></header>
+<main>
+<div class="hero" id="stats"></div>
+<div id="me"></div>
+<div id="tabs" class="role" style="display:none;width:max-content;max-width:100%;margin-bottom:16px"><button data-tab="cat" class="on">Catalogue</button><button data-tab="chk">Checkout</button><button data-tab="stu">Students</button><button data-tab="rep">Reports</button></div>
+<div class="bar" id="bar"><input id="q" type="search" placeholder="Search by title or author" aria-label="Search books">
+<select id="cat" aria-label="Category"></select>
+<select id="av" aria-label="Availability"><option value="">All books</option><option value="1">Available now</option></select><button class="btn" id="addb" hidden>Add a book</button></div>
+<div class="grid" id="grid"></div>
+<div id="lib"></div>
+<div id="pan"></div>
+<dialog id="dv"></dialog>
+<dialog id="ds"><form method="dialog" id="fs" style="margin:0"><h2 style="margin:0 0 4px">Add a student</h2><label for="sn">Full name</label><input id="sn" required><label for="sc">Class</label><select id="sc"><option>JHS 1</option><option>JHS 2</option><option>JHS 3</option></select><div class="row"><button type="button" class="btn alt" id="sx">Cancel</button><button class="btn">Add student</button></div></form></dialog>
+<dialog id="df"><form method="dialog" id="f" style="margin:0"><h2 id="fh" style="margin:0 0 4px">Add a book</h2>
+<label for="ft">Title</label><input id="ft" required>
+<label for="fa">Author</label><input id="fa" required>
+<label for="fc">Category</label><select id="fc"></select>
+<label for="fn">Number of copies</label><input id="fn" type="number" min="1" value="1" required>
+<label for="fy">Year published (optional)</label><input id="fy" type="number" min="1000" max="2100">
+<label for="fp">Publisher (optional)</label><input id="fp">
+<label for="fd">Short description (optional)</label><textarea id="fd" rows="3"></textarea>
+<div class="row"><button type="button" class="btn alt" id="fx">Cancel</button><button class="btn">Add book</button></div></form></dialog>
+</main>
+<script>
+const CAT=['Textbooks','Fiction','Science','History','Ghanaian Authors','Mathematics','Reference'];
+const COL={Fiction:'#f5a38a',Science:'#7fd6c9','History':'#b7c4f2','Ghanaian Authors':'#F2C230',Mathematics:'#c9e48f',Reference:'#d9d2f0',Textbooks:'#ffb454'};
+const S=[{id:'JHS1-014',n:'Kwame Boateng'},{id:'JHS2-027',n:'Efua Addo'},{id:'JHS3-009',n:'Akosua Mensah'}];
+const D={'Things Fall Apart':{y:1958,pub:'William Heinemann',d:'Okonkwo is a proud wrestler in an Igbo village. His world is shaken when colonial rule and missionaries arrive.'},
+'Anowa':{y:1970,pub:'Longman',d:'A play about Anowa, a strong-willed young woman from a Fante town who marries against her family\u2019s wishes.'},
+'Our Sister Killjoy':{y:1977,pub:'Longman',d:'A mix of prose and poetry following Sissie, a young Ghanaian woman who travels to Europe.'},
+'The Girl Who Can':{y:1997,pub:'Heinemann',d:'A collection of short stories about girls and women in Ghana, including the title story.'},
+'Animal Farm':{y:1945,pub:'Secker & Warburg',d:'Farm animals chase out their farmer, then watch their new leaders become just as unfair.'}};
+const B=[
+['Things Fall Apart','Chinua Achebe','Fiction',3],['Anowa','Ama Ata Aidoo','Ghanaian Authors',2],['The Girl Who Can','Ama Ata Aidoo','Ghanaian Authors',2],
+['Our Sister Killjoy','Ama Ata Aidoo','Ghanaian Authors',1],['Ananse and the Golden Pot','Folk tale retold','Ghanaian Authors',4],['A Brief History of Ghana','K. Owusu','History',2],
+['Integrated Science for JHS','D. Mensah','Science',5],['The Human Body','R. Asare','Science',2],['Basic Mathematics 2','F. Darko','Mathematics',4],
+['Oxford Student Dictionary','Oxford Press','Reference',2],['Atlas of Africa','World Maps Ltd','Reference',1],['Animal Farm','George Orwell','Fiction',3],
+['Mathematics for JHS 1','JHS 1 · sample title','Textbooks',6],['Mathematics for JHS 2','JHS 2 · sample title','Textbooks',6],['Mathematics for JHS 3','JHS 3 · sample title','Textbooks',6],
+['English Language for JHS 1','JHS 1 · sample title','Textbooks',6],['English Language for JHS 2','JHS 2 · sample title','Textbooks',5],['English Language for JHS 3','JHS 3 · sample title','Textbooks',5],
+['Integrated Science for JHS 1','JHS 1 · sample title','Textbooks',5],['Integrated Science for JHS 2','JHS 2 · sample title','Textbooks',5],['Integrated Science for JHS 3','JHS 3 · sample title','Textbooks',5],
+['Social Studies for JHS 2','JHS 2 · sample title','Textbooks',4],['Religious and Moral Education JHS 1','JHS 1 · sample title','Textbooks',4],['Computing for JHS 3','JHS 3 · sample title','Textbooks',4],
+['Creative Arts and Design JHS 2','JHS 2 · sample title','Textbooks',4],['French for JHS 1','JHS 1 · sample title','Textbooks',3]
+].map((b,i)=>({i,t:b[0],a:b[1],c:b[2],n:b[3],out:0,...(D[b[0]]||{smp:1})}));
+let L=[{b:6,s:'JHS2-027',d:-3},{b:0,s:'JHS3-009',d:5}];B[6].out=1;B[0].out=1;
+let lib=false,sid=S[0].id;const $=id=>document.getElementById(id);
+const fmt=d=>{const x=new Date();x.setDate(x.getDate()+d);return x.toLocaleDateString('en-GB',{day:'numeric',month:'short'})};
+const nm=id=>S.find(s=>s.id==id).n;
+let ed=null,tab='cat',R=[];
+function login(){const r=$('lgr').value,v=$('lgi').value.trim();
+ if(r=='lib'){if(v!='library')return $('lge').textContent='Wrong password. Demo password: library'}
+ else{const s=S.find(x=>x.id.toLowerCase()==v.toLowerCase());if(!s)return $('lge').textContent='Student ID not found. Try JHS1-014';sid=s.id}
+ $('lge').textContent='';$('lgi').value='';lib=r=='lib';tab='cat';$('who').textContent=lib?'Librarian':nm(sid);$('lg').style.display='none';render()}
+function doReturn(r){const l=L[r],s=S.find(x=>x.id==l.s);B[l.b].out--;const h=H.find(x=>x.b==l.b&&x.s==l.s&&!x.r);if(h)h.r=fmt(0);L.splice(r,1);
+ let m='Book returned';if(l.d<0){const f=-l.d*0.5;s.fo=(s.fo||0)+f;m+='. Fine: GH₵'+f.toFixed(2)}
+ const k=R.findIndex(x=>x.b==l.b);if(k>=0){m+='. Held for '+nm(R[k].s);R.splice(k,1)}toast(m);render()}
+function quick(k){const bi=parseInt($('cb').value.trim().toUpperCase().replace('B',''))-1,bk=B[bi];
+ if(!bk||bk.del)return toast('Book code not found. Try B001');
+ if(k=='in'){const x=L.findIndex(l=>l.b==bi);if(x<0)return toast('That book is not on loan');return doReturn(x)}
+ const s=S.find(x=>x.id.toLowerCase()==$('ci').value.trim().toLowerCase());if(!s)return toast('Student ID not found');
+ if(bk.n-bk.out<1)return toast('No copies on the shelf');if(L.filter(l=>l.s==s.id).length>=3)return toast('Student already has 3 books');
+ bk.out++;L.push({b:bi,s:s.id,d:14});H.push({b:bi,s:s.id,o:fmt(0),r:''});toast('Checked out to '+s.n);render()}
+let H=[{b:6,s:'JHS2-027',o:fmt(-17),r:''},{b:0,s:'JHS3-009',o:fmt(-9),r:''},{b:2,s:'JHS1-014',o:fmt(-30),r:fmt(-20)},{b:8,s:'JHS3-009',o:fmt(-25),r:fmt(-15)},{b:11,s:'JHS2-027',o:fmt(-40),r:fmt(-28)},{b:6,s:'JHS1-014',o:fmt(-45),r:fmt(-33)}];
+function panel(){const on=lib&&tab!='cat';$('bar').style.display=on?'none':'';$('grid').style.display=on?'none':'';$('tabs').style.display=lib?'':'none';
+ [...$('tabs').children].forEach(b=>b.classList.toggle('on',b.dataset.tab==tab));if(!on){$('pan').innerHTML='';return}
+ const T=(h,r)=>`<div class="scroll"><table><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr>${r.map(x=>`<tr>${x.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</table></div>`;
+ if(tab=='chk')$('pan').innerHTML=`<h2>Quick checkout</h2><div class="me"><input id="ci" placeholder="Student ID, e.g. JHS1-014"><input id="cb" placeholder="Book code, e.g. B007"><button class="btn" id="cout">Check out</button><button class="btn alt" id="cin">Check in</button></div><p style="color:var(--mut)">Scan or type the student ID and the book code. The book code is shown in each book\u2019s details window.</p>`;
+ else if(tab=='stu')$('pan').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><h2>Students (${S.length})</h2><button class="btn" id="adds">Add a student</button></div>`+T(['ID','Name','Class','Books out','Total borrowed','Fines owed','Actions'],S.map(s=>{const f=(s.fo||0)+L.filter(l=>l.s==s.id&&l.d<0).reduce((a,l)=>a-l.d*.5,0);return[s.id,esc(s.n),s.id.replace('JHS','JHS ').split('-')[0],L.filter(l=>l.s==s.id).length,H.filter(h=>h.s==s.id).length,'GH₵'+f.toFixed(2),`<button class="btn alt" data-sms="${s.id}">Send SMS</button> ${s.fo?`<button class="btn alt" data-pay="${s.id}">Collect fine</button>`:''}`]}));
+ else{const cnt={};H.forEach(h=>cnt[h.b]=(cnt[h.b]||0)+1);const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,5),od=L.filter(l=>l.d<0);
+ $('pan').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><h2>Reports</h2><span><button class="btn alt" data-csv="1">Export to Excel</button> <button class="btn alt" onclick="print()">Print report</button></span></div><h2>Overdue books</h2><button class="btn alt" data-sms="all">Send SMS reminders</button>`+(od.length?T(['Book','Student','Due','Fine'],od.map(l=>[esc(B[l.b].t),nm(l.s)+' ('+l.s+')',`<span class="late">${fmt(l.d)}</span>`,'GH₵'+(-l.d*.5).toFixed(2)])):'<div class="empty">No overdue books.</div>')+`<h2>Most borrowed</h2>`+T(['Book','Times borrowed'],top.map(([i,c])=>[esc(B[i].t),c]))+`<h2>Borrowing history</h2>`+T(['Book','Student','Borrowed','Returned'],H.slice().reverse().slice(0,15).map(h=>[esc(B[h.b].t),nm(h.s),h.o,h.r||'Still out']))}}
+$('cat').innerHTML='<option value="">All categories</option>'+CAT.map(c=>`<option>${c}</option>`).join('');
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function toast(m){const e=document.createElement('div');e.className='toast';e.textContent=m;document.body.append(e);setTimeout(()=>e.remove(),2200)}
+const mine=()=>L.filter(l=>l.s==sid);
+function render(){panel();$('addb').hidden=!lib;
+ const avail=B.reduce((a,b)=>a+b.n-b.out,0),tot=B.reduce((a,b)=>a+b.n,0);
+ $('stats').innerHTML=`<div class="stat" data-stat="titles" tabindex="0" role="button"><b>${B.filter(b=>!b.del).length}</b>titles</div><div class="stat" data-stat="shelf" tabindex="0" role="button"><b>${avail}</b>of ${tot} copies on the shelf</div><div class="stat" data-stat="loans" tabindex="0" role="button"><b>${L.length}</b>borrowed now</div><div class="stat" data-stat="over" tabindex="0" role="button"><b>${L.filter(l=>l.d<0).length}</b>overdue</div>`;
+ $('me').innerHTML=lib?'':`<div class="me"><b>${nm(sid)}</b> (${sid})<span>You have ${mine().length} of 3 books out. Fines owed: GH₵${((S.find(x=>x.id==sid).fo||0)+mine().filter(l=>l.d<0).reduce((a,l)=>a-l.d*.5,0)).toFixed(2)}</span></div>`+(mine().length?`<h2>My books</h2><div class="scroll"><table><tr><th>Book</th><th>Due</th><th></th></tr>${mine().map(l=>`<tr><td>${esc(B[l.b].t)}</td><td class="${l.d<0?'late':''}">${l.d<0?'Overdue since ':''}${fmt(l.d)}</td><td><button class="btn alt" data-ren="${L.indexOf(l)}">Renew</button> <button class="btn alt" data-ret="${L.indexOf(l)}">Return</button></td></tr>`).join('')}</table></div><h2>All books</h2>`:'');
+
+ const q=$('q').value.toLowerCase(),c=$('cat').value,v=$('av').value;
+ const list=B.filter(b=>!b.del&&(!c||b.c==c)&&(!v||b.n>b.out)&&(b.t+b.a).toLowerCase().includes(q));
+ $('grid').innerHTML=list.length?list.map(b=>{const left=b.n-b.out,has=L.some(l=>l.b==b.i&&l.s==sid);
+  return`<div class="book" data-open="${b.i}" tabindex="0" style="border-left-color:${COL[b.c]}"><div style="height:70px;background:${COL[b.c]};color:#1F2A5A;margin:-14px -14px 8px;padding:8px 12px;display:flex;align-items:flex-end;font-weight:800;border-radius:0 12px 0 0;font-size:.95rem;line-height:1.15">${esc(b.t)}</div><p>${esc(b.a)}</p><p>${b.c}</p><div class="ft"><span class="tag ${left?'in':'out'}">${left?left+' available':'All out'}</span>${lib?'':`${!left&&!has?(R.some(r=>r.b==b.i&&r.s==sid)?'<button class="btn alt" disabled>Reserved</button>':`<button class="btn alt" data-res="${b.i}">Reserve</button>`):`<button class="btn" data-b="${b.i}" ${has?'disabled':''}>${has?'Borrowed':'Borrow'}</button>`}`}</div></div>`}).join(''):'<div class="empty" style="grid-column:1/-1">No books match. Try another title, author or category.</div>';
+ $('lib').innerHTML=lib&&tab=='cat'?`<h2>Books out on loan</h2>`+(L.length?`<div class="scroll"><table><tr><th>Book</th><th>Student</th><th>Due</th><th></th></tr>${L.map((l,k)=>`<tr><td>${esc(B[l.b].t)}</td><td>${nm(l.s)} (${l.s})</td><td class="${l.d<0?'late':''}">${l.d<0?'Overdue since ':''}${fmt(l.d)}</td><td><button class="btn alt" data-ren="${k}">Renew</button> <button class="btn alt" data-ret="${k}">Mark returned</button></td></tr>`).join('')}</table></div>`:'<div class="empty">No books on loan.</div>'):'';
+}
+function openB(i){$('dv').style.maxWidth='';const b=B[i],left=b.n-b.out,has=L.some(l=>l.b==i&&l.s==sid),who=L.filter(l=>l.b==i);
+ $('dv').innerHTML=`<div style="height:120px;border-radius:6px 14px 14px 6px;border-left:14px solid rgba(0,0,0,.25);background:${COL[b.c]};color:#1F2A5A;display:flex;align-items:flex-end;padding:12px;font-weight:800;font-size:1.2rem;line-height:1.15;margin-bottom:12px">${esc(b.t)}</div><h2 style="margin:0">${esc(b.t)}</h2><p style="margin:2px 0;color:var(--mut)">by ${esc(b.a)}</p>${b.smp?'<span class="tag">Sample record</span>':''}
+<dl class="dl"><dt>Book code</dt><dd>B${String(i+1).padStart(3,'0')}</dd><dt>Category</dt><dd>${b.c}</dd><dt>Published</dt><dd>${b.y||'2021'}</dd><dt>Publisher</dt><dd>${b.pub||'Sample publisher'}</dd><dt>Copies</dt><dd>${left} of ${b.n} available</dd><dt>Reservations</dt><dd>${R.filter(r=>r.b==i).length} waiting</dd>${lib&&who.length?`<dt>Borrowed by</dt><dd>${who.map(l=>nm(l.s)+' (due '+fmt(l.d)+')').join(', ')}</dd>`:''}</dl>
+<p>${esc(b.d||(b.c=='Textbooks'?'Follows the JHS syllabus with exercises and revision questions.':'Replace this with the real book summary.'))}</p>
+<div class="row"><button class="btn alt" onclick="dv.close()">Close</button>${lib?`<button class="btn alt" data-del="${i}">Delete</button><button class="btn" data-edit="${i}">Edit</button>`:`<button class="btn" data-b="${i}" ${has?'disabled':''}>${has?'Borrowed':'Borrow this book'}</button>`}</div>`;$('dv').showModal()}
+function openS(k){const rows=(h,r)=>`<div class="scroll"><table><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr>${r.map(x=>`<tr>${x.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</table></div>`;let t,h;
+ if(k=='titles'){t='All titles';h=rows(['Title','Author','Category','Copies'],B.filter(b=>!b.del).map(b=>[esc(b.t),esc(b.a),b.c,b.n]))}
+ else if(k=='shelf'){t='Copies on the shelf';h=rows(['Title','On shelf','Total'],B.filter(b=>!b.del).map(b=>[esc(b.t),b.n-b.out,b.n]))}
+ else{const src=lib?L:mine();const ls=k=='over'?src.filter(l=>l.d<0):src;t=lib?(k=='over'?'Overdue books':'Books on loan'):(k=='over'?'Your overdue books':'Your books on loan');h=ls.length?rows(['Book','Student','Due'],ls.map(l=>[esc(B[l.b].t),nm(l.s)+' ('+l.s+')',`<span class="${l.d<0?'late':''}">${fmt(l.d)}</span>`])):'<div class="empty">Nothing here right now.</div>'}
+ $('dv').style.maxWidth='640px';$('dv').innerHTML=`<h2 style="margin:0 0 12px">${t}</h2>${h}<div class="row"><button class="btn alt" onclick="dv.close()">Close</button></div>`;$('dv').showModal()}
+document.addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.dataset&&e.target.dataset.stat)openS(e.target.dataset.stat)});
+document.addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.dataset&&e.target.dataset.open!==undefined)openB(+e.target.dataset.open)});
+document.body.onclick=e=>{const s=e.target.closest('[data-stat]');if(s){openS(s.dataset.stat);return}const o=e.target.closest('[data-open]');if(o&&!e.target.closest('button')){openB(+o.dataset.open);return}
+ const b=e.target.dataset.b,r=e.target.dataset.ret;
+ if(e.target.id=='adds'){$('ds').showModal();return}
+ const tb=e.target.dataset.tab;if(tb){tab=tb;render();return}
+ const ei=e.target.dataset.edit,di=e.target.dataset.del,ri=e.target.dataset.ren;
+ if(ei!==undefined){editB(+ei);return}
+ if(di!==undefined){const bk=B[di];if(bk.out)return toast('Cannot delete: copies are on loan');if(!e.target.dataset.sure){e.target.dataset.sure=1;e.target.textContent='Click again to confirm';return}bk.del=1;bk.n=0;$('dv').close();toast('Book removed from the library');render();return}
+ if(ri!==undefined){if(L[ri].rn)return toast('Already renewed once');L[ri].d+=7;L[ri].rn=1;toast('Renewed for 7 more days');render();return}
+ const rs=e.target.dataset.res,sm=e.target.dataset.sms,py=e.target.dataset.pay;
+ if(rs!==undefined){R.push({b:+rs,s:sid});toast('Reserved. You are number '+R.filter(x=>x.b==rs).length+' in the queue');if($('dv').open)$('dv').close();render();return}
+ if(sm!==undefined){toast(sm=='all'?'SMS reminders sent for all overdue books':'SMS reminder sent to the guardian of '+nm(sm));return}
+ if(py!==undefined){S.find(x=>x.id==py).fo=0;toast('Fine collected');render();return}
+ if(e.target.dataset.csv){const csv='Book,Student,Borrowed,Returned\n'+H.map(h=>[B[h.b].t,nm(h.s),h.o,h.r||'Still out'].map(x=>'"'+x+'"').join(',')).join('\n');
+  $('dv').style.maxWidth='';$('dv').innerHTML=`<h2 style="margin:0 0 8px">Export to Excel</h2><p style="color:var(--mut)">Select all, copy, then paste into Excel.</p><textarea style="height:180px" readonly>${esc(csv)}</textarea><div class="row"><button class="btn alt" onclick="dv.close()">Close</button></div>`;$('dv').showModal();return}
+ if(e.target.id=='cout'){quick('out');return}if(e.target.id=='cin'){quick('in');return}
+ if(b!==undefined){if(mine().length>=3)return toast('Limit reached: return a book first');B[b].out++;L.push({b:+b,s:sid,d:14});H.push({b:+b,s:sid,o:fmt(0),r:''});toast('Borrowed. Due in 14 days');if($('dv').open)$('dv').close()}
+ else if(r!==undefined){doReturn(r)}else return;render()};
+$('fc').innerHTML=CAT.map(c=>`<option>${c}</option>`).join('');
+function editB(i){const b=B[i];ed=i;$('fh').textContent='Edit book';$('ft').value=b.t;$('fa').value=b.a;$('fc').value=b.c;$('fn').value=b.n;$('fy').value=/^\d+$/.test(b.y)?b.y:'';$('fp').value=b.pub&&b.pub!='Not recorded'?b.pub:'';$('fd').value=b.d||'';$('dv').close();$('df').showModal()}
+$('addb').onclick=()=>{ed=null;$('f').reset();$('fh').textContent='Add a book';$('df').showModal()};$('fx').onclick=()=>{ed=null;$('df').close()};
+$('fs').onsubmit=()=>{const c=$('sc').value;S.push({id:c.replace(' ','')+'-'+String(S.length+30).padStart(3,'0'),n:$('sn').value.trim()});$('fs').reset();toast('Student added');render()};$('sx').onclick=()=>$('ds').close();
+$('f').onsubmit=()=>{const g=id=>$(id).value.trim(),n=Math.max(1,+$('fn').value||1);
+ if(ed!=null){const b=B[ed];b.t=g('ft');b.a=g('fa');b.c=$('fc').value;b.n=Math.max(n,b.out);b.y=g('fy')||'Not recorded';b.pub=g('fp')||'Not recorded';b.d=g('fd')||b.d;delete b.smp;ed=null;$('f').reset();toast('Book updated');render();return}
+ const k=B.findIndex(b=>b.t.toLowerCase()==g('ft').toLowerCase()&&b.a.toLowerCase()==g('fa').toLowerCase());
+ if(k>=0){B[k].n+=n;toast(n+' more copies added to the existing book')}
+ else{B.push({i:B.length,t:g('ft'),a:g('fa'),c:$('fc').value,n,out:0,y:g('fy')||'Not recorded',pub:g('fp')||'Not recorded',d:g('fd')||'No description added yet.'});toast('Book added to the library')}
+ $('f').reset();render()};
+['q','cat','av'].forEach(i=>$(i).oninput=render);
+function role(x){lib=x;tab='cat';render()}
+$('lo').onclick=()=>{$('lg').style.display='flex';$('who').textContent=''};$('lgb').onclick=login;$('lgi').onkeydown=e=>{if(e.key=='Enter')login()};render();
+</script></body></html>
